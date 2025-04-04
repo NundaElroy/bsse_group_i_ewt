@@ -1,3 +1,137 @@
+# Zoo Management System
+
+A Laravel-based Zoo Management System to manage various sections of a zoo website, including Home, Gallery, Animals, Tickets, Careers, Events, and Contact.
+
+## 🚀 Features
+- Blade templating with layouts for consistent structure.
+- Dynamic routing using Laravel controllers.
+- Styled using external CSS files stored in the public directory.
+- Easy-to-extend layout with `@extends` and `@section`.
+
+---
+
+## 📌 Requirements
+- PHP >= 8.0
+- Composer
+- Laravel >= 10.x
+- MySQL or any other supported database
+- Node.js & npm (for compiling assets if needed)
+
+---
+
+## 📂 Folder Structure
+```
+/project-root
+|-- /app
+|-- /bootstrap
+|-- /config
+|-- /database
+|-- /public
+|   |-- /css
+|   |   |-- styles.css
+|   |-- /images
+|   |   |-- San-Diego-Zoo-Logo.png
+|-- /resources
+|   |-- /views
+|       |-- /layouts
+|           |-- app.blade.php
+|       |-- home.blade.php
+|-- /routes
+|   |-- web.php
+```
+
+---
+
+## 📥 Installation
+1. **Clone the Repository**
+```bash
+git clone https://github.com/YourUsername/YourRepoName.git
+```
+
+2. **Navigate to the Project Directory**
+```bash
+cd YourRepoName
+```
+
+3. **Install Dependencies**
+```bash
+composer install
+```
+
+4. **Copy the `.env.example` File to `.env`**
+```bash
+cp .env.example .env
+```
+
+5. **Generate Application Key**
+```bash
+php artisan key:generate
+```
+
+
+6. **Serve the Application**
+```bash
+php artisan serve
+```
+Then visit: [http://localhost:8000](http://localhost:8000)
+
+---
+
+## 📂 Public Directory
+- Store your **CSS files** in `public/css`
+- Store your **Images (e.g., logo)** in `public/images`
+- Refer to assets using: `{{ asset('css/styles.css') }}` or `{{ asset('images/your-logo.png') }}`
+
+---
+
+## 📌 Important Notes
+- Always run `php artisan key:generate` after creating a new `.env` file.
+- Make sure your `.env` file is not committed to your repository. Add it to `.gitignore`.
+
+
+## 🔑 Troubleshooting `.env` File Issues
+If your `.env` file is not being read properly:
+- Make sure you have **no extra spaces or invisible characters**.
+- Clear the config cache using:
+```bash
+php artisan config:cache
+```
+
+
+
+Happy Coding! 😊
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
