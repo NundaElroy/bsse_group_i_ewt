@@ -34,7 +34,8 @@ A Laravel-based Zoo Management System to manage various sections of a zoo websit
 |-- /resources
 |   |-- /views
 |       |-- /layouts
-|           |-- app.blade.php
+|           |--user
+                  |--layout.blade.php
 |       |-- home.blade.php
 |-- /routes
 |   |-- web.php
