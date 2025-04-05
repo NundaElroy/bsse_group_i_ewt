@@ -72,6 +72,8 @@ php artisan key:generate
 
 6. **Serve the Application**
 ```bash
+first run the migrastion then serve
+php artisan migrate
 php artisan serve
 ```
 Then visit: [http://localhost:8000](http://localhost:8000)
