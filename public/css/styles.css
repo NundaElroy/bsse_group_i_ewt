@@ -272,3 +272,135 @@
       }
     }
   /* FOOTER END */
+
+
+/* TICKET BOOKING PAGE STARTS */
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f7f7f7;
+}
+
+/* Centering the Booking Card Container */
+.ticket-booking-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  background: #f0f4f8; 
+  min-height: 80vh; 
+}
+
+/* Booking Card Styling  */
+.ticket-booking-card {
+  background: #fff;
+  border-radius: 10px; 
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1); 
+  max-width: 600px;
+  width: 100%;
+  padding: 30px;
+  text-align: center;
+}
+
+/* Form Title */
+.ticket-booking-card h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Success Message Styling */
+.alert-success {
+  background: #dff0d8;
+  color: #3c763d;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+/* Ticket Prices Section  */
+.ticket-price-list {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+}
+
+/* Individual Category (Ugandan, Foreign)  */
+.ticket-price-category {
+  text-align: left;
+  margin: 10px;
+}
+
+/*  Category Headings  */
+.ticket-price-category h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #16a085;
+}
+
+/* Each Ticket Price Row  */
+.ticket-price {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 12px;
+  background: #f7f7f7;
+  border-radius: 5px;
+  margin-bottom: 8px;
+  font-size: 16px;
+  color: #555;
+}
+
+/* Form Styling Section */
+.ticket-form {
+  text-align: left;
+}
+
+/* Individual Form Fields */
+.ticket-form .form-group {
+  margin-bottom: 15px;
+}
+
+/* Form Labels */
+.ticket-form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 600;
+  color: #444;
+}
+
+/*  Inputs, Selects, and Textareas  */
+.ticket-form input,
+.ticket-form select,
+.ticket-form textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: border-color 0.3s;
+}
+
+/* Focus Effect on Inputs */
+.ticket-form input:focus,
+.ticket-form select:focus,
+.ticket-form textarea:focus {
+  border-color: #16a085; 
+  outline: none;
+}
+
+/*  Submit Button Styling */
+.btn-book-ticket {
+  width: 100%;
+  padding: 12px;
+  background: #02411e;
+  color: rgb(247, 247, 247);
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+/* TICKET BOOKING PAGE ENDS */

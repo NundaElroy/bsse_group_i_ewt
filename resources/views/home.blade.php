@@ -1,4 +1,5 @@
 <!-- resources/views/home.blade.php -->
+ 
 @extends('layouts.user.layout')
 
 @section('title', 'Home - Zoo Management System')
