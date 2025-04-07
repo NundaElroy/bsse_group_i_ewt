@@ -25,7 +25,9 @@
           <li class="nav-item"><a href="{{ url('ticket_page') }}" class="nav-link">Book Tickets</a></li>
           <li class="nav-item"><a href="{{ url('careers') }}" class="nav-link">Careers</a></li>
           <li class="nav-item"><a href="{{ url('events') }}" class="nav-link">Events</a></li>
-          <li class="nav-item"><a href="{{ url('contact') }}" class="nav-link">Contact Us</a></li>
+          <!-- <li class="nav-item"><a href="{{ url('contact') }}" class="nav-link">Contact Us</a></li> -->
+          <li class="nav-item"><a href="{{ route('contact') }}" class="nav-link">Contact Us</a></li>
+
         </ul>
       </nav>
     </div>
