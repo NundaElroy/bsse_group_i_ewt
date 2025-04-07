@@ -67,21 +67,7 @@
     </div>
 </div>
 
-<!-- Contact Form Section -->
-<div class="contact-section" id="contact">
-    <h2>Contact Us</h2>
-    <p>Have a question, feedback, or need assistance? Drop us a message!</p>
-    @if(session('success'))
-        <div class="alert-success">{{ session('success') }}</div>
-    @endif
-    <form action="{{ route('contact.submit') }}" method="POST" class="contact-form">
-        @csrf
-        <input type="text" name="name" placeholder="Your Name" required>
-        <input type="email" name="email" placeholder="Your Email" required>
-        <textarea name="message" rows="5" placeholder="Your Message..." required></textarea>
-        <button type="submit">Send Message</button>
-    </form>
-</div>
+
 
 <!-- JavaScript for Changing Background Image -->
 <script>

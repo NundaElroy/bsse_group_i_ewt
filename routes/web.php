@@ -10,5 +10,3 @@ Route::get('/home', function () {
 Route::get('/', function () {
     return view('home');
 });
-Route::post('/contact', [ContactController::class, 'submit'])->name('contact.submit');
-
