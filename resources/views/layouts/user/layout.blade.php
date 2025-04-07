@@ -7,6 +7,8 @@
   <title>@yield('title', 'Zoo Website')</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/home.css') }}">
+
 </head>
 <body>
   <header>
@@ -15,7 +17,7 @@
         <a href="{{ url('home') }}" class="logo">
           <img src="{{ asset('images/San-Diego-Zoo-Logo.png') }}" alt="Zoo Logo">
         </a>
-        
+       
         <button class="menu-toggle">Menu ☰</button>
         
         <ul class="nav-menu">
