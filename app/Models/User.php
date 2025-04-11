@@ -45,4 +45,12 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+
+    // User.php
+    //one to one relationship 
+    public function employee()
+    {
+        return $this->hasOne(Employee::class);
+    }
 }

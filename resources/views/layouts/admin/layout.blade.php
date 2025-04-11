@@ -23,37 +23,52 @@
             Dashboard
         </a>
         
-        <div class="section-title">MNG</div>
+        <div class="section-title">Animals</div>
         
         <a href="#" class="menu-item">
-            <i class="fa-solid fa-lock menu-icon"></i>
+        
+            <i class="fa-solid fa-hippo menu-icon"></i>
             Animals Management
         </a>
         
         <a href="#" class="menu-item">
             <i class="fa-solid fa-file-lines menu-icon"></i>
-            Finances
+            Medical Records 
         </a>
+
+        <div class="section-title">Locations</div>
+        <a href="#" class="menu-item">
+            <i class="fa-solid fa-warehouse menu-icon"></i>
+            Locations
+        </a>
+        <div class="section-title">Employees</div>
         
         <a href="#" class="menu-item">
             <i class="fa-solid fa-user-pen menu-icon"></i>
             Employee Management
         </a>
         
-        <a href="#" class="menu-item">
-            <i class="fa-solid fa-warehouse menu-icon"></i>
-            Locations
-        </a>
         
+        <div class="section-title">Visitors</div>
         <a href="#" class="menu-item">
-            <i class="fa-solid fa-eye menu-icon"></i>
+            <i class="fa-solid  fa-person-walking-luggage"></i>
+            Visitors
+        </a>
+
+        <a href="#" class="menu-item">
+            <i class="fa-solid fa-ticket menu-icon"></i>
             Tickets
+        </a>
+
+        <a href="#" class="menu-item">
+            <i class="fa-solid fa-comment menu-icon"></i>
+            Feedback
         </a>
         
         <div class="section-title">Website</div>
         
         <a href="#" class="menu-item">
-            <i class="fa-solid fa-question menu-icon"></i>
+            <i class="fa-solid fa-calendar menu-icon"></i>
             Events
         </a>
         
@@ -62,10 +77,7 @@
             Gallery
         </a>
         
-        <a href="#" class="menu-item">
-            <i class="fa-solid fa-calendar-day menu-icon"></i>
-            Special Days
-        </a>
+        
         
         
         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
