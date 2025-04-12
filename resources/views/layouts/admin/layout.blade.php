@@ -55,13 +55,13 @@
             Tickets
         </a>
 
-        <a href="#" class="menu-item">
+        <a href="{{ route('bookings') }}" class="menu-item {{ request()->routeIs('bookings') ? 'active' : '' }}">
             <i class="fa-solid fa-ticket menu-icon"></i>
             View Bookings
         </a>
         
         <div class="section-title">Visitors</div>
-        <a href="#" class="menu-item">
+        <a href="{{ route('visitors') }}" class="menu-item {{ request()->routeIs('visitors') ? 'active' : '' }}">
             <i class="fa-solid  fa-person-walking-luggage"></i>
             Visitors
         </a>

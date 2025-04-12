@@ -12,9 +12,9 @@
     <div class="ticket-booking-card">
         <h2>Book Your Uganda Wildlife Education Centre Tickets</h2>
 
-        @if(session('success'))
-            <div class="alert-success">{{ session('success') }}</div>
-        @endif
+               
+
+               
 
                     <div class="ticket-price-list">
                 @foreach ($ticketTypes as $category => $tickets)
@@ -33,14 +33,37 @@
             </div>
 
 
-        <form action="{{ route('book_ticket') }}" method="POST" class="ticket-form" id="ticketForm">
+        <form action="{{ route('book_ticket.store') }}" method="POST" class="ticket-form" id="ticketForm">
             @csrf
+           
+            @if ($errors->any())
+                    <div style="color: red ;">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+            @endif 
+            
+            @if ($errors->has('general'))
+                <div style="color: red ;">
+                    {{ $errors->first('general') }}
+                </div>
+            @endif
+
+
+            @if (session('success'))
+                <div style="color: green ;">
+                    {{ session('success') }}
+                </div>
+                @endif
 
             <div class="form-group">
                 <label for="visitor_type">Visitor Type</label>
                 <select name="visitor_type" id="visitor_type" required>
-                    <option value="citizen">Ugandan Citizen</option>
-                    <option value="foreign">Foreign Visitor</option>
+                    <option value="Ugandan Citizen">Ugandan Citizen</option>
+                    <option value="Foreign Visitor">Foreign Visitor</option>
                 </select>
             </div>
 
