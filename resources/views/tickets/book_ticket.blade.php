@@ -16,30 +16,22 @@
             <div class="alert-success">{{ session('success') }}</div>
         @endif
 
-        <div class="ticket-price-list">
-            <div class="ticket-price-category">
-                <h3>Ugandan Citizens</h3>
-                <div class="ticket-price">
-                    <span>Adult</span>
-                    <span>UGX 5,000</span>
-                </div>
-                <div class="ticket-price">
-                    <span>Child</span>
-                    <span>UGX 3,000</span>
-                </div>
+                    <div class="ticket-price-list">
+                @foreach ($ticketTypes as $category => $tickets)
+                    <div class="ticket-price-category">
+                        <h3>{{ $category }}</h3>
+
+                        @foreach ($tickets as $ticket)
+                            <div class="ticket-price">
+                                <span>{{ $ticket->age_category }}</span>
+                                <span>UGX {{ number_format($ticket->price) }}</span>
+                            </div>
+                        @endforeach
+
+                    </div>
+                @endforeach
             </div>
-            <div class="ticket-price-category">
-                <h3>Foreign Visitors</h3>
-                <div class="ticket-price">
-                    <span>Adult</span>
-                    <span>UGX 15,000</span>
-                </div>
-                <div class="ticket-price">
-                    <span>Child</span>
-                    <span>UGX 10,000</span>
-                </div>
-            </div>
-        </div>
+
 
         <form action="{{ route('book_ticket') }}" method="POST" class="ticket-form" id="ticketForm">
             @csrf
