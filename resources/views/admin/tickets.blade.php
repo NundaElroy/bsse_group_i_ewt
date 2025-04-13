@@ -4,6 +4,48 @@
 
 @section('content')
 <div class="ticket-types-container">
+<!-- <dialog  id="myModal" >
+  <form method="post">
+    <p>
+      <label>
+        Name:<br>
+        <input type="text" name="name">
+      </label>
+    </p>
+
+    <p>
+      <label>
+        Visitor Category:<br>
+        <select name="visitorCategory">
+          <option>Local</option>
+          <option>Foreigner</option>
+        </select>
+      </label>
+    </p>
+
+    <p>
+      <label>
+        Age Category:<br>
+        <select name="ageCategory">
+          <option>Child</option>
+          <option>Adult</option>
+          <option>Senior</option>
+        </select>
+      </label>
+    </p>
+
+    <p>
+      <label>
+        Price (UGX):<br>
+        <input type="number" name="price">
+      </label>
+    </p>
+
+    <p>
+      <button type="submit">Submit</button>
+    </p>
+  </form>
+</dialog> -->
     <h2>Ticket Types</h2>
 
     <table class="ticket-table">
@@ -23,17 +65,76 @@
                     <td>{{ $ticket->visitor_category }}</td>
                     <td>{{ $ticket->age_category }}</td>
                     <td>{{ number_format($ticket->price) }}</td>
-                    <td><a href="#" class="edit-btn">Edit</a></td>
+                    <td><a href="{{ route('editTicket', $ticket->id) }}"  id="openBtn"  class="edit-btn">Edit</a></td>
                 </tr>
             @endforeach
         </tbody>
     </table>
 </div>
 
+
+<script>
+    const dialog = document.getElementById('myModal');
+    const openBtn = document.getElementById('openBtn');
+    const closeBtn = document.getElementById('closeBtn');
+
+    openBtn.addEventListener('click', () => {
+      dialog.showModal(); // Opens modal
+    });
+
+    closeBtn.addEventListener('click', () => {
+      dialog.close(); // Closes modal
+    });
+  </script>
+
 @endsection
 
 @push('styles')
 <style>
+/* 
+dialog { 
+      padding: 20px;
+      border: none;
+      border-radius: 8px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+      width: 300px;
+      font-family: Arial, sans-serif;
+
+      
+    }
+
+    form p {
+      margin-bottom: 15px;
+    }
+
+    label {
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      font-size: 14px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    button {
+      padding: 10px 15px;
+      font-size: 14px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }    */
+
     .ticket-types-container {
         padding: 20px;
         max-width: 100%;
@@ -105,6 +206,8 @@
             padding: 6px 12px;
             font-size: 13px;
         }
+
+      
     }
 </style>
 @endpush

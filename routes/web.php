@@ -36,10 +36,17 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+//tickets
 Route::get('/admin/tickets', [TicketTypeController::class, 'index'])->name('tickets');
+Route::get('/admin/editTicket/{id}', [TicketTypeController::class, 'editTicket'])->name('editTicket');
+Route::post('/admin/updateTicket/{id}', [TicketTypeController::class, 'updateTicket'])->name('updateTicket');
+
 
 //vistors
 Route::get('/admin/visitors', [VisitorsController::class, 'index'])->name('visitors');
 
 //bookings
 Route::get('/admin/bookings', [ViewBookingsController::class, 'index'])->name('bookings');
+
+
