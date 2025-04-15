@@ -7,6 +7,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ViewBookingsController;
 use App\Http\Controllers\VisitorsController;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\LocationController;
 
 
 
@@ -28,13 +29,15 @@ Route::get('/book_ticket', [BookTicketController::class, 'index'])->name('book_t
 Route::post('/book_ticket', [BookTicketController::class, 'store'])->name('book_ticket.store');
 
 
+Route::resource('/locations', LocationController::class);
+
+
 
 
 //admin view routes
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
 Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
 //tickets
