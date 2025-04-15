@@ -2,12 +2,13 @@
 
 use App\Http\Controllers\BookTicketController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\TicketTypeController; // Ensure this class exists in the specified namespace
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ViewBookingsController;
 use App\Http\Controllers\VisitorsController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\LocationController;
+use App\Http\Controllers\EmployeeController;
 
 
 
@@ -23,10 +24,6 @@ Route::get('/home', function () {
 Route::get('/contact', function () {
     return view('contact');
 })->name('contact');
-
-Route::resource('employees', EmployeeController::class);
-
-Route::resource('employees', EmployeeController::class);
 
 //book tickets on the user view 
 Route::get('/book_ticket', [BookTicketController::class, 'index'])->name('book_ticket');
@@ -55,5 +52,12 @@ Route::get('/admin/visitors', [VisitorsController::class, 'index'])->name('visit
 
 //bookings
 Route::get('/admin/bookings', [ViewBookingsController::class, 'index'])->name('bookings');
+
+
+//employee
+Route::resource('employees', EmployeeController::class);
+
+
+
 
 
