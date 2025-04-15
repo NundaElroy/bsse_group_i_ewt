@@ -4,7 +4,7 @@
 
 @section('styles')
     <!-- Link to external CSS file -->
-    <link rel="stylesheet" href="{{ asset('css/tickets.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/styl.css') }}">
 @endsection
 
 @section('content')

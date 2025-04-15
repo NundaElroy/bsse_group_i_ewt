@@ -6,6 +6,7 @@
     <title>@yield('title', 'Zoo Website')</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/employee.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
@@ -41,12 +42,11 @@
             <i class="fa-solid fa-warehouse menu-icon"></i>
             Locations
         </a>
+        
         <div class="section-title">Employees</div>
         
-        <a href="#" class="menu-item">
-            <i class="fa-solid fa-user-pen menu-icon"></i>
-            Employee Management
-        </a>
+        <a href="{{ route('employees.index') }}" class="menu-item">
+          <i class="fa-solid fa-user-pen menu-icon"></i> Employee Management </a>
         
         
         <div class="section-title">Visitors</div>

@@ -1,0 +1,243 @@
+/* ==============================
+   Container and Page Layout
+   ============================== */
+   .employee-container {
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+/* Centered layout for form */
+.employee-form-wrapper {
+    min-height: 100vh;
+    background: linear-gradient(to right, #eef1f7, #f9f9f9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* ==============================
+   Header and Titles
+   ============================== */
+.employee-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.employee-header h2 {
+    font-size: 26px;
+    font-weight: bold;
+    color: #2e7d32; /* Dark Green */
+    margin-bottom: 5px;
+}
+
+/* Grouping the title and subtitle */
+.employee-title-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.employee-subtitle {
+    font-size: 15px;
+    color: #666;
+    margin-top: 4px;
+    margin-bottom: 15px;
+    font-style: italic;
+}
+
+/* ==============================
+   Form Container
+   ============================== */
+.employee-form-container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 650px;
+}
+
+/* ==============================
+   Form Fields
+   ============================== */
+.employee-form-group {
+    margin-bottom: 18px;
+    display: flex;
+    flex-direction: column;
+}
+
+.employee-form-group label {
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #333;
+}
+
+.employee-form-group input,
+.employee-form-group select {
+    padding: 10px 12px;
+    font-size: 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    transition: all 0.3s;
+    outline: none;
+    background-color: #fafafa;
+}
+
+.employee-form-group input:focus,
+.employee-form-group select:focus {
+    border-color: #2e7d32; /* Dark Green */
+    background-color: #fff;
+}
+
+/* ==============================
+   Image Preview Styling
+   ============================== */
+.employee-profile-photo-preview {
+    margin-top: 10px;
+    width: 100px;
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* ==============================
+   Buttons (Submit & Cancel)
+   ============================== */
+.employee-form-buttons {
+    margin-top: 25px;
+    display: flex;
+    gap: 15px;
+}
+
+.employee-form-buttons button {
+    background-color: #2e7d32; /* Dark Green */
+    color: white;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.employee-form-buttons button:hover {
+    background-color: #1b5e20; /* Darker Green on hover */
+}
+
+/* Cancel button */
+.cancel-btn {
+    background-color: #ccc;
+    color: #333;
+    padding: 10px 18px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.cancel-btn:hover {
+    background-color: #bbb;
+}
+
+/* ==============================
+   Validation & Errors
+   ============================== */
+.error-msg {
+    color: #e63946; /* Red */
+    font-size: 13px;
+    margin-top: 5px;
+}
+
+/* ==============================
+   Table Styles
+   ============================== */
+.table-wrapper {
+    overflow-x: auto;
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.employee-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.employee-table th, .employee-table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+    font-size: 14px;
+}
+
+.employee-table th {
+    background-color: #f1f1f1;
+    color: #444;
+}
+
+.employee-table tr:nth-child(even) {
+    background-color: #fafafa;
+}
+
+/* ==============================
+   Action Buttons (Edit/Delete)
+   ============================== */
+.actions {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-edit {
+    background-color: #2e7d32; /* Dark Green */
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.btn-delete {
+    background-color: #f5365c;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+/* ==============================
+   No Data Message
+   ============================== */
+.no-data {
+    text-align: center;
+    font-style: italic;
+    color: #999;
+}
+
+/* ==============================
+   Responsive Design (Mobile)
+   ============================== */
+@media (max-width: 576px) {
+    .employee-form-container {
+        padding: 20px;
+    }
+
+    .employee-header h2 {
+        font-size: 20px;
+    }
+
+    .employee-form-buttons {
+        flex-direction: column;
+    }
+
+    .employee-form-buttons button,
+    .cancel-btn {
+        width: 100%;
+        text-align: center;
+    }
+}

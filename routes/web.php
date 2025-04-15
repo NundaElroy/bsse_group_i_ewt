@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ContactController;
+use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\DashboardController;
 
 Route::get('/book_ticket', function () { return view('tickets.book_ticket');
@@ -19,6 +19,8 @@ Route::get('/home', function () {
 Route::get('/contact', function () {
     return view('contact');
 })->name('contact');
+
+Route::resource('employees', EmployeeController::class);
 
 
 
