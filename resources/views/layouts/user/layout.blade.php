@@ -35,7 +35,7 @@
     </div>
   </header>
 
-  <main>
+  <main   style="padding-top: 60px;">
     @yield('content')
   </main>
 

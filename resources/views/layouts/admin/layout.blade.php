@@ -7,7 +7,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
     <link rel="stylesheet" href="{{ asset('css/employee.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/locations.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    @stack('styles')
 </head>
 <body>
     <!-- Backdrop for mobile -->
@@ -19,7 +21,7 @@
             <img src="{{ asset('images/zoolg.png') }}" alt="" style="width: 95px; border-radius: 20%">
         </div>
         
-        <a href="{{ route('dashboard') }}" class="menu-item active">
+        <a href="{{ route('dashboard') }}" class="menu-item {{ request()->routeIs('dashboard') ? 'active' : '' }}">
             <i class="fa-solid fa-table-columns menu-icon"></i>
             Dashboard
         </a>
@@ -38,27 +40,36 @@
         </a>
 
         <div class="section-title">Locations</div>
-        <a href="#" class="menu-item">
-            <i class="fa-solid fa-warehouse menu-icon"></i>
-            Locations
+        <a href="{{ route('locations.index') }}" class="menu-item">
+           <i class="fa-solid fa-user-pen menu-icon"></i> 
+             Locations
         </a>
         
+
+
+
         <div class="section-title">Employees</div>
-        
         <a href="{{ route('employees.index') }}" class="menu-item">
           <i class="fa-solid fa-user-pen menu-icon"></i> Employee Management </a>
-        
+
+        <div class="section-title">Tickets</div>
+        <a href="{{ route('tickets') }}" class="menu-item {{ request()->routeIs('tickets') ? 'active' : '' }}">
+            <i class="fa-solid fa-ticket menu-icon"></i>
+            Tickets
+        </a>
+
+        <a href="{{ route('bookings') }}" class="menu-item {{ request()->routeIs('bookings') ? 'active' : '' }}">
+            <i class="fa-solid fa-ticket menu-icon"></i>
+            View Bookings
+        </a>
         
         <div class="section-title">Visitors</div>
-        <a href="#" class="menu-item">
+        <a href="{{ route('visitors') }}" class="menu-item {{ request()->routeIs('visitors') ? 'active' : '' }}">
             <i class="fa-solid  fa-person-walking-luggage"></i>
             Visitors
         </a>
 
-        <a href="#" class="menu-item">
-            <i class="fa-solid fa-ticket menu-icon"></i>
-            Tickets
-        </a>
+        
 
         <a href="#" class="menu-item">
             <i class="fa-solid fa-comment menu-icon"></i>
