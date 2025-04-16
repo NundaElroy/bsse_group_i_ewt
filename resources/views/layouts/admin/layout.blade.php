@@ -9,6 +9,13 @@
     <link rel="stylesheet" href="{{ asset('css/employee.css') }}">
     <link rel="stylesheet" href="{{ asset('css/locations.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">
     @stack('styles')
 </head>
 <body>
@@ -133,7 +140,7 @@
             
         </div>
     </main>
-    
+    @stack('scripts')
     <script>
         // Toggle sidebar on mobile
         document.getElementById('menuToggle').addEventListener('click', function() {

@@ -1,4 +1,3 @@
-<!-- resources/views/layouts/app.blade.php -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +7,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
   <link rel="stylesheet" href="{{ asset('css/home.css') }}">
-
+  
+  @stack('styles')
 </head>
 <body>
   <header>
@@ -26,7 +26,7 @@
           <li class="nav-item"><a href="#" class="nav-link">Animals <span class="dropdown-icon"></span></a></li>
           <li class="nav-item"><a href="{{ url('book_ticket') }}" class="nav-link">Book Tickets</a></li>
           <li class="nav-item"><a href="{{ url('careers') }}" class="nav-link">Careers</a></li>
-          <li class="nav-item"><a href="{{ url('events') }}" class="nav-link">Events</a></li>
+          <li class="nav-item"><a href="{{ url('evens') }}" class="nav-link">Events</a></li>
           <!-- <li class="nav-item"><a href="{{ url('contact') }}" class="nav-link">Contact Us</a></li> -->
           <li class="nav-item"><a href="{{ route('contact') }}" class="nav-link">Contact Us</a></li>
 
@@ -43,12 +43,18 @@
     <div class="container">
       <div class="footer-row">
         <div class="footer-column large-column">
-          <h5 class="footer-heading">About Zoo Management System</h5>
-          <p class="footer-text">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout...</p>
+          <h5 class="footer-heading">About Sebabe Conservation Center</h5>
+          <p class="footer-text">The Uganda Wildlife Conservation Education Center is a fun and exciting place to see and learn about the animals of Uganda and the ecosystems in which they live. Take some time to learn how they live, eat, play, and walk.</p>
         </div>
         <div class="footer-column">
+          
           <h5 class="footer-heading">Our Location</h5>
-          <p class="footer-text">Entebbe, Uganda<br>Mobile: +256 414 320 520</p>
+          <p class="footer-text">Lugard Avenue <br>Entebbe, Uganda<br>Mobile: +256 414 320 520<br>email:info.zoo.co.ug</p>
+        </div>
+        <div class="footer-column">
+          
+          <h5 class="footer-heading">Our Sponsors</h5>
+          <p class="footer-text">Ministry of Finance <br>USAID<br>Uganda Airlines<br>Uganda Baati</p>
         </div>
         <div class="footer-column">
           <h5 class="footer-heading">Popular Animals</h5>
@@ -56,6 +62,7 @@
             <li><a href="#" class="footer-link">Mammals</a></li>
             <li><a href="#" class="footer-link">Reptiles &amp; Amphibians</a></li>
             <li><a href="#" class="footer-link">Birds</a></li>
+            <li><a href="#" class="footer-link">Carnivores</a></li>
           </ul>
         </div>
         <div class="footer-column">
@@ -70,10 +77,10 @@
       </div>
     </div>
     <div class="copyright">
-      <p>© 2025 - Zoo Management System</p>
+      <p>© 2025 - Sebabe Zoo</p>
     </div>
   </footer>
-
+ 
   <script>
     const menuToggle = document.querySelector('.menu-toggle');
     const navMenu = document.querySelector('.nav-menu');
@@ -81,6 +88,8 @@
     menuToggle.addEventListener('click', () => {
       navMenu.classList.toggle('active');
     });
+
+    
   </script>
 </body>
 </html>

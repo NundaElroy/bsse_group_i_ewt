@@ -10,8 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\LocationController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\EventsController;
-
-
+use App\Http\Controllers\UserEventController;
 
 //use view routes
 Route::get('/', function () {
@@ -30,8 +29,14 @@ Route::get('/contact', function () {
 Route::get('/book_ticket', [BookTicketController::class, 'index'])->name('book_ticket');
 Route::post('/book_ticket', [BookTicketController::class, 'store'])->name('book_ticket.store');
 
+//Events on the web or user view
+Route::get('/evens', [UserEventController::class, 'index'])->name('evens');
 
-Route::resource('/locations', LocationController::class);
+//gallery
+Route::get('/gallery', [UserEventController::class, 'gallery'])->name('gallery');
+
+
+
 
 
 
@@ -60,6 +65,9 @@ Route::resource('employees', EmployeeController::class);
 
 //events
 Route::resource('events', EventsController::class);
+
+//locations or habitats
+Route::resource('/locations', LocationController::class);
 
 
 
