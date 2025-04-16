@@ -1,11 +1,11 @@
 /*admin layout css*/
 
 :root {
-    --sidebar-bg: #1a1b29;
+    --sidebar-bg: #020509;
     --sidebar-text: #a2a3b7;
     --sidebar-active: #1e3b48;
     --active-text: #46d5c8;
-    --section-header: #5e6278;
+    --section-header: #3ea175;
     --main-bg: #f5f7fa;
     --white: #ffffff;
     --logout-color: #fc5c65;
@@ -125,7 +125,7 @@ height: auto;
 .section-title {
     color: var(--section-header);
     font-size: 13px;
-    padding: 18px 20px 8px;
+    padding: 6px 20px 6px;
     font-weight: 600;
 }
 

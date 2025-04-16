@@ -2,15 +2,16 @@
 
 use App\Http\Controllers\BookTicketController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\TicketTypeController; // Ensure this class exists in the specified namespace
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ViewBookingsController;
 use App\Http\Controllers\VisitorsController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\LocationController;
 use App\Http\Controllers\FeedbackController;
-
-
+use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\EventsController;
+use App\Http\Controllers\UserEventController;
 
 //use view routes
 Route::get('/', function () {
@@ -25,16 +26,18 @@ Route::get('/contact', function () {
     return view('contact');
 })->name('contact');
 
-Route::resource('employees', EmployeeController::class);
-
-Route::resource('employees', EmployeeController::class);
-
 //book tickets on the user view 
 Route::get('/book_ticket', [BookTicketController::class, 'index'])->name('book_ticket');
 Route::post('/book_ticket', [BookTicketController::class, 'store'])->name('book_ticket.store');
 
+//Events on the web or user view
+Route::get('/evens', [UserEventController::class, 'index'])->name('evens');
 
-Route::resource('/locations', LocationController::class);
+//gallery
+Route::get('/gallery', [UserEventController::class, 'gallery'])->name('gallery');
+
+
+
 
 
 
@@ -56,6 +59,20 @@ Route::get('/admin/visitors', [VisitorsController::class, 'index'])->name('visit
 
 //bookings
 Route::get('/admin/bookings', [ViewBookingsController::class, 'index'])->name('bookings');
+
+
+//employee
+Route::resource('employees', EmployeeController::class);
+
+//events
+Route::resource('events', EventsController::class);
+
+//locations or habitats
+Route::resource('/locations', LocationController::class);
+
+
+
+
  
 //feedback routes
 Route::get('/admin/feedback', [FeedbackController::class, 'index'])->name('admin.feedback.index');

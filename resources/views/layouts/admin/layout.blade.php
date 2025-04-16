@@ -9,6 +9,13 @@
     <link rel="stylesheet" href="{{ asset('css/employee.css') }}">
     <link rel="stylesheet" href="{{ asset('css/locations.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     @stack('styles')
 </head>
@@ -27,7 +34,7 @@
             Dashboard
         </a>
         
-        <div class="section-title">Animals</div>
+        <div class="section-title">ANIMALS</div>
         
         <a href="#" class="menu-item">
         
@@ -40,20 +47,19 @@
             Medical Records 
         </a>
 
-        <div class="section-title">Locations</div>
-        <a href="{{ route('locations.index') }}" class="menu-item">
-           <i class="fa-solid fa-user-pen menu-icon"></i> 
-             Locations
+        <!-- <div class="section-title">LOCATIONS</div> -->
+        <a href="{{ route('locations.index') }}" class="menu-item {{ request()->routeIs('locations*') ? 'active' : '' }}">
+           <i class="fa-solid fa-house menu-icon"></i> 
+             Habitats
         </a>
+
         
-
-
-
-        <div class="section-title">Employees</div>
-        <a href="{{ route('employees.index') }}" class="menu-item">
+        <div class="section-title">EMPLOYEES</div>
+        <a href="{{ route('employees.index') }}" class="menu-item {{ request()->routeIs('employees*') ? 'active' : '' }}"
+        >
           <i class="fa-solid fa-user-pen menu-icon"></i> Employee Management </a>
 
-        <div class="section-title">Tickets</div>
+        <div class="section-title">VISITORS</div>
         <a href="{{ route('tickets') }}" class="menu-item {{ request()->routeIs('tickets') ? 'active' : '' }}">
             <i class="fa-solid fa-ticket menu-icon"></i>
             Tickets
@@ -64,9 +70,9 @@
             View Bookings
         </a>
         
-        <div class="section-title">Visitors</div>
+        <!-- <div class="section-title">Visitors</div> -->
         <a href="{{ route('visitors') }}" class="menu-item {{ request()->routeIs('visitors') ? 'active' : '' }}">
-            <i class="fa-solid  fa-person-walking-luggage"></i>
+            <i class="fa-solid  fa-person-walking-luggage menu-icon"></i>
             Visitors
         </a>
 
@@ -77,9 +83,11 @@
             Feedback
         </a>
         
-        <div class="section-title">Website</div>
+        <!-- 
+         -->
         
-        <a href="#" class="menu-item">
+        <a href="{{ route('events.index') }}" class="menu-item {{ request()->routeIs('events*') ? 'active' : '' }}"
+        >
             <i class="fa-solid fa-calendar menu-icon"></i>
             Events
         </a>
@@ -133,7 +141,7 @@
             
         </div>
     </main>
-    
+    @stack('scripts')
     <script>
         // Toggle sidebar on mobile
         document.getElementById('menuToggle').addEventListener('click', function() {
