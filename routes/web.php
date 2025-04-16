@@ -9,6 +9,7 @@ use App\Http\Controllers\VisitorsController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\LocationController;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\EventsController;
 
 
 
@@ -56,6 +57,10 @@ Route::get('/admin/bookings', [ViewBookingsController::class, 'index'])->name('b
 
 //employee
 Route::resource('employees', EmployeeController::class);
+
+//events
+Route::resource('events', EventsController::class);
+
 
 
 

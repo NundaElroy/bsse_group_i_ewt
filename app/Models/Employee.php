@@ -32,15 +32,13 @@ class Employee extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+
+    public function events()
+    {
+        return $this->hasMany(Event::class);
+    }
+
     
-    // public function medicalRecords()
-    // {
-    //     return $this->hasMany(MedicalRecord::class, 'performed_by');
-    // }
     
-    // // If you want to track which animals an employee cares for
-    // public function animals()
-    // {
-    //     return $this->belongsToMany(Animal::class, 'animal_employee');
-    // }
 }

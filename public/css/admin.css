@@ -125,7 +125,7 @@ height: auto;
 .section-title {
     color: var(--section-header);
     font-size: 13px;
-    padding: 18px 20px 8px;
+    padding: 6px 20px 6px;
     font-weight: 600;
 }
 

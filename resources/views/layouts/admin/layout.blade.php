@@ -26,7 +26,7 @@
             Dashboard
         </a>
         
-        <div class="section-title">Animals</div>
+        <div class="section-title">ANIMALS</div>
         
         <a href="#" class="menu-item">
         
@@ -39,20 +39,19 @@
             Medical Records 
         </a>
 
-        <div class="section-title">Locations</div>
-        <a href="{{ route('locations.index') }}" class="menu-item">
-           <i class="fa-solid fa-user-pen menu-icon"></i> 
-             Locations
+        <!-- <div class="section-title">LOCATIONS</div> -->
+        <a href="{{ route('locations.index') }}" class="menu-item {{ request()->routeIs('locations*') ? 'active' : '' }}">
+           <i class="fa-solid fa-house menu-icon"></i> 
+             Habitats
         </a>
+
         
-
-
-
-        <div class="section-title">Employees</div>
-        <a href="{{ route('employees.index') }}" class="menu-item">
+        <div class="section-title">EMPLOYEES</div>
+        <a href="{{ route('employees.index') }}" class="menu-item {{ request()->routeIs('employees*') ? 'active' : '' }}"
+        >
           <i class="fa-solid fa-user-pen menu-icon"></i> Employee Management </a>
 
-        <div class="section-title">Tickets</div>
+        <div class="section-title">VISITORS</div>
         <a href="{{ route('tickets') }}" class="menu-item {{ request()->routeIs('tickets') ? 'active' : '' }}">
             <i class="fa-solid fa-ticket menu-icon"></i>
             Tickets
@@ -63,9 +62,9 @@
             View Bookings
         </a>
         
-        <div class="section-title">Visitors</div>
+        <!-- <div class="section-title">Visitors</div> -->
         <a href="{{ route('visitors') }}" class="menu-item {{ request()->routeIs('visitors') ? 'active' : '' }}">
-            <i class="fa-solid  fa-person-walking-luggage"></i>
+            <i class="fa-solid  fa-person-walking-luggage menu-icon"></i>
             Visitors
         </a>
 
@@ -76,9 +75,11 @@
             Feedback
         </a>
         
-        <div class="section-title">Website</div>
+        <!-- 
+         -->
         
-        <a href="#" class="menu-item">
+        <a href="{{ route('events.index') }}" class="menu-item {{ request()->routeIs('events*') ? 'active' : '' }}"
+        >
             <i class="fa-solid fa-calendar menu-icon"></i>
             Events
         </a>
