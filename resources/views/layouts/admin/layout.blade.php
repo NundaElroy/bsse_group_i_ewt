@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="{{ asset('css/employee.css') }}">
     <link rel="stylesheet" href="{{ asset('css/locations.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     @stack('styles')
 </head>
 <body>
@@ -71,7 +72,7 @@
 
         
 
-        <a href="#" class="menu-item">
+        <a href="{{route('admin.feedback.index') }}" class="menu-item {{ request()->routeIs('feedback') ? 'active' : '' }}">
             <i class="fa-solid fa-comment menu-icon"></i>
             Feedback
         </a>

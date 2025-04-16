@@ -8,6 +8,7 @@ use App\Http\Controllers\ViewBookingsController;
 use App\Http\Controllers\VisitorsController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\LocationController;
+use App\Http\Controllers\FeedbackController;
 
 
 
@@ -55,5 +56,8 @@ Route::get('/admin/visitors', [VisitorsController::class, 'index'])->name('visit
 
 //bookings
 Route::get('/admin/bookings', [ViewBookingsController::class, 'index'])->name('bookings');
-
+ 
+//feedback routes
+Route::get('/admin/feedback', [FeedbackController::class, 'index'])->name('admin.feedback.index');
+Route::get('/admin/feedback/{id}', [FeedbackController::class, 'show'])->name('admin.feedback.show');
 

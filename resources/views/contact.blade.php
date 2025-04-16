@@ -8,7 +8,7 @@
     <h1>Contact Us</h1>
     <!--placeholder # for submission-->
     <form action="#" method="POST" style="display: flex; flex-direction: column; gap: 15px;">
-        @csrf <!-- For security if you later submit to a route -->
+        @csrf 
 
         <div>
             <label for="first_name">First Name</label><br>
@@ -37,7 +37,7 @@
 </div>
 
 
-    <div class="container">
+    <div class="container" style="padding:20px">
         
          <p>If you have any inquiries and would like to hear from us, feel free to also reach out using the information below.</p>
         <ul>

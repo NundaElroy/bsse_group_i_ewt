@@ -1,4 +1,5 @@
-@extends('layouts.admin.layout')
+@extends('layouts.admin.layout') 
+<!-- add to the blade file i will work on. -->
 
 @section('title', 'Dashboard')
 

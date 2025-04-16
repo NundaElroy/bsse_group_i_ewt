@@ -46,6 +46,11 @@ class User extends Authenticatable
         ];
     }
 
+//trial for replying back to the users as an admin and matching their email to their details
+public function user()
+{
+    return $this->belongsTo(User::class, 'email', 'email');
+}
 
     // User.php
     //one to one relationship 
