@@ -9,7 +9,7 @@ class FeedbackController extends Controller
     public function index()
     {
         // Fetch all feedback, ordered by date descending
-        $feedbacks = Feedback::orderBy('date', 'desc')->get();
+        $feedbacks = Feedback::latest()->get();
         return view('admin.feedback', compact('feedbacks'));
     }
 
@@ -20,3 +20,4 @@ class FeedbackController extends Controller
         return view('admin.feedback-show', compact('feedback'));
     }
 }
+// orderBy('date', 'desc')

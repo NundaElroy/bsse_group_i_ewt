@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('feedback', function (Blueprint $table) {
             $table->id();
             $table->string('email')->unique();
+            $table->string('subject');
             $table->text('comment');
             $table->integer('rating')->nullable();
             $table->date('date');
