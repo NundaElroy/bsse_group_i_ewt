@@ -26,6 +26,7 @@
     <aside class="sidebar" id="sidebar">
         <div class="logo-area">
             <img src="{{ asset('images/zoolg.png') }}" alt="" style="width: 95px; border-radius: 20%">
+            <span class="admin-text">ADMIN</span>
         </div>
         
         <a href="{{ route('dashboard') }}" class="menu-item {{ request()->routeIs('dashboard') ? 'active' : '' }}">
