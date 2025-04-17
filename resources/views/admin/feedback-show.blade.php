@@ -11,6 +11,7 @@
                 <h5>From: {{ $feedback->email }}</h5>
             </div>
             <div class="card-body">
+            <p><strong>Email:</strong>{{ $feedback->email }} </p>
                 <p><strong>Subject:</strong> {{ $feedback->email_subject ?? 'Feedback from ' . $feedback->email }}</p>
                 <p><strong>Comment:</strong> {{ $feedback->comment }}</p>
                 <p><strong>Rating:</strong> {{ $feedback->rating ?? 'N/A' }}</p>

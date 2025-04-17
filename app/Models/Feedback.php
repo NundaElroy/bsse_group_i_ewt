@@ -16,6 +16,7 @@ class Feedback extends Model
     protected $fillable = [
         'email',
         'comment',
+        'subject',
         'rating',
         'date',
     ];

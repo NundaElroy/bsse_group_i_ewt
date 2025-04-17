@@ -7,6 +7,12 @@
     <div>
     <h2 class="events-heading">Contact us </h2>
     </div>
+    @if(session('success'))
+        <div class="alert alert-success">{{ session('success') }}</div>
+    @endif
+    @if(session('error'))
+        <div class="alert alert-danger">{{ session('error') }}</div>
+    @endif
     <div class="wrapper">
         <div class="contact-grid">
             <!-- Left Column -->
@@ -51,7 +57,7 @@
                     </div>
                     <h5 class="title">Contact Us</h5>
                     <p>If you have any inquiries and would like to hear from us, feel free to reach out using the form below.</p>
-                    <form id="contact-form" method="POST" action="#">
+                    <form id="contact-form" method="POST" action="{{route('contact.submit')}}">
                         @csrf
                        
                         <div class="form-group">
@@ -64,7 +70,7 @@
                         </div>
                         <div class="form-group">
                             <label for="message">Message</label>
-                            <textarea id="message" rows="5" name="message" required=""></textarea>
+                            <textarea id="message" rows="5" name="comment" required=""></textarea>
                         </div>
 
                         <div class="form-group">
@@ -302,6 +308,20 @@ textarea {
     .contact-grid {
         flex-direction: column;
     }
+
+}
+.alert {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 4px;
+}
+.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+}
+.alert-danger {
+    background-color: #f8d7da;
+    color: #721c24;
 }
 </style>
 

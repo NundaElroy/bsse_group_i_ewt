@@ -14,6 +14,7 @@ use App\Http\Controllers\EventsController;
 use App\Http\Controllers\UserEventController;
 use App\Http\Controllers\InventoryController;
 use App\Http\Controllers\GalleryController;
+use App\Http\Controllers\ContactController;
 
 //use view routes
 Route::get('/', function () {
@@ -37,6 +38,11 @@ Route::get('/evens', [UserEventController::class, 'index'])->name('evens');
 
 //gallery
 Route::get('/gallery', [UserEventController::class, 'gallery'])->name('gallery');
+//adding route for form submission
+Route::post('/contact/submit', [ContactController::class, 'store'])->name('contact.submit');
+
+
+
 
 
 //admin view routes
