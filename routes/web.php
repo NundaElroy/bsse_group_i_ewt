@@ -12,6 +12,7 @@ use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\EventsController;
 use App\Http\Controllers\UserEventController;
+use App\Http\Controllers\InventoryController;
 
 //use view routes
 Route::get('/', function () {
@@ -70,10 +71,9 @@ Route::resource('events', EventsController::class);
 //locations or habitats
 Route::resource('/locations', LocationController::class);
 
+//inventory
+Route::resource('inventories', InventoryController::class);
 
-
-
- 
 //feedback routes
 Route::get('/admin/feedback', [FeedbackController::class, 'index'])->name('admin.feedback.index');
 Route::get('/admin/feedback/{id}', [FeedbackController::class, 'show'])->name('admin.feedback.show');

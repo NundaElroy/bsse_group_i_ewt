@@ -53,7 +53,12 @@
              Habitats
         </a>
 
+        <a href="{{ route('inventories.index') }}" class="menu-item {{ request()->routeIs('inventories*') ? 'active' : '' }}">
+           <i class="fa-solid fa-warehouse menu-icon"></i> 
+             Inventory
+        </a>
         
+                
         <div class="section-title">EMPLOYEES</div>
         <a href="{{ route('employees.index') }}" class="menu-item {{ request()->routeIs('employees*') ? 'active' : '' }}"
         >

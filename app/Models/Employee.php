@@ -39,6 +39,12 @@ class Employee extends Model
         return $this->hasMany(Event::class);
     }
 
+    public function inventories()
+    {
+        return $this->hasMany(Inventory::class);
+    }
+
+
     
     
 }
