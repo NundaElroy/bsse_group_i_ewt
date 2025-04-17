@@ -97,7 +97,7 @@
             Events
         </a>
         
-        <a href="#" class="menu-item">
+        <a href="{{ route('galleries.index') }}" class="menu-item {{ request()->routeIs('galleries*') ? 'active' : '' }}">
             <i class="fa-solid fa-file-export menu-icon"></i>
             Gallery
         </a>

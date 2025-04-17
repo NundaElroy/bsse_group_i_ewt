@@ -13,6 +13,7 @@ use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\EventsController;
 use App\Http\Controllers\UserEventController;
 use App\Http\Controllers\InventoryController;
+use App\Http\Controllers\GalleryController;
 
 //use view routes
 Route::get('/', function () {
@@ -38,11 +39,6 @@ Route::get('/evens', [UserEventController::class, 'index'])->name('evens');
 Route::get('/gallery', [UserEventController::class, 'gallery'])->name('gallery');
 
 
-
-
-
-
-
 //admin view routes
 Auth::routes();
 
@@ -54,13 +50,11 @@ Route::get('/admin/tickets', [TicketTypeController::class, 'index'])->name('tick
 Route::get('/admin/editTicket/{id}', [TicketTypeController::class, 'editTicket'])->name('editTicket');
 Route::post('/admin/updateTicket/{id}', [TicketTypeController::class, 'updateTicket'])->name('updateTicket');
 
-
 //vistors
 Route::get('/admin/visitors', [VisitorsController::class, 'index'])->name('visitors');
 
 //bookings
 Route::get('/admin/bookings', [ViewBookingsController::class, 'index'])->name('bookings');
-
 
 //employee
 Route::resource('employees', EmployeeController::class);
@@ -77,4 +71,8 @@ Route::resource('inventories', InventoryController::class);
 //feedback routes
 Route::get('/admin/feedback', [FeedbackController::class, 'index'])->name('admin.feedback.index');
 Route::get('/admin/feedback/{id}', [FeedbackController::class, 'show'])->name('admin.feedback.show');
+
+//gallery
+Route::resource('galleries', GalleryController::class);
+
 

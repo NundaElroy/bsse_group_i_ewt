@@ -32,6 +32,16 @@ class DashboardController extends Controller
         $totalChildTickets = Bookings::sum('child_tickets');
         $income = Bookings::sum('total_amount');
         $totalTickets = $totalAdultTickets + $totalChildTickets;
+
+
+        //piec chart fir visitors
+        $visitorTypes = Visitor::selectRaw('visitor_type, COUNT(*) as total')
+        ->groupBy('visitor_type')
+        ->get();
+
+        $labels = $visitorTypes->pluck('visitor_type');
+        $values = $visitorTypes->pluck('total');
+
         
         return view('admin.dashboard', compact(
             'animalCount',
@@ -40,7 +50,9 @@ class DashboardController extends Controller
             'bookingCount',
             'totalTickets',
             'income',
-            'eventCount'
+            'eventCount',
+            'labels',
+            'values'
         ));
     }
 }
