@@ -28,7 +28,7 @@
               ></i>
               <div class="card_inner">
                 <p class="text-primary-p">Number of Visitors</p>
-                <span class="font-bold text-title">578</span>
+                <span class="font-bold text-title">{{$visitorCount}}</span>
               </div>
             </div>
 
@@ -36,7 +36,7 @@
               <i class="fa-solid fa-ticket fa-2x text-red" aria-hidden="true"></i>
               <div class="card_inner">
                 <p class="text-primary-p">Number Of Tickets Sold</p>
-                <span class="font-bold text-title">2467</span>
+                <span class="font-bold text-title">{{$totalTickets}}</span>
               </div>
             </div>
 
@@ -47,7 +47,7 @@
               ></i>
               <div class="card_inner">
                 <p class="text-primary-p">Number of Employees</p>
-                <span class="font-bold text-title">340</span>
+                <span class="font-bold text-title">{{$employeeCount}}</span>
               </div>
             </div>
 
@@ -58,7 +58,7 @@
               ></i>
               <div class="card_inner">
                 <p class="text-primary-p">Number of Animals</p>
-                <span class="font-bold text-title">645</span>
+                <span class="font-bold text-title">{{$animalCount}}</span>
               </div>
             </div>
           </div>
@@ -72,7 +72,7 @@
                   <h1>Daily Reports</h1>
                   <p>Entebbe,Uganda</p>
                 </div>
-                <i class="fa fa-usd" aria-hidden="true"></i>
+                <i class="fa fa-ugx" aria-hidden="true"></i>
               </div>
               <div id="apex1"></div>
             </div>
@@ -83,28 +83,28 @@
                   <h1>Stats Reports</h1>
                   <p>Entebbe,Uganda</p>
                 </div>
-                <i class="fa fa-usd" aria-hidden="true"></i>
+                <i class="fa fa-ugx" aria-hidden="true"></i>
               </div>
 
               <div class="charts__right__cards">
                 <div class="card1">
                   <h1>Income</h1>
-                  <p>$75,300</p>
+                  <p>UGX {{$income}}</p>
                 </div>
 
                 <div class="card2">
                   <h1>Sales</h1>
-                  <p>$124,200</p>
+                  <p>UGX 124,200</p>
                 </div>
 
                 <div class="card3">
-                  <h1>Users</h1>
-                  <p>3900</p>
+                  <h1>Bookings</h1>
+                  <p>{{$bookingCount}}</p>
                 </div>
 
                 <div class="card4">
-                  <h1>Orders</h1>
-                  <p>1881</p>
+                  <h1>Events</h1>
+                  <p>{{$eventCount}}</p>
                 </div>
               </div>
             </div>

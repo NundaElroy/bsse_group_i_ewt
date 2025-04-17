@@ -1,16 +1,21 @@
 @extends('layouts.admin.layout')
 @section('title', 'feedback')
 
-@section('content')
-<div class="feedback-table-container">
-
-    <div class="container mt-5">
-        <h1>Visitor Feedback</h1>
-        <table class="table table-striped">
+@section('content')<div class="employee-container">
+    <div class="employee-header">
+        <h2>Visitor Feedback</h2>
+        <!-- Button removed since it's not in the original feedback table -->
+    </div>
+    
+    @if(session('success'))
+        <div class="alert alert-success">{{ session('success') }}</div>
+    @endif
+    
+    <div class="table-wrapper">
+        <table class="employee-table">
             <thead>
                 <tr>
                     <th>Email</th>
-                    <!-- <th>Subject</th> -->
                     <th>Comment</th>
                     <th>Rating</th>
                     <th>Date</th>
@@ -18,28 +23,25 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($feedbacks as $feedback)
+                @forelse ($feedbacks as $feedback)
                     <tr>
                         <td>{{ $feedback->email }}</td>
-                        <!-- <td>{{ $feedback->email_subject ?? 'Feedback from ' . $feedback->email }}</td> -->
                         <td>{{ Str::limit($feedback->comment, 50) }}</td>
                         <td>{{ $feedback->rating ?? 'N/A' }}</td>
-                        <td>{{ $feedback->date->format('Y-m-d') }}</td>
-                        <td>
-                            <a href="{{ route('admin.feedback.show', $feedback->id) }}" class="btn btn-sm btn-primary">View Details</a>
+                        <td>{{ $feedback->date->format('M d, Y') }}</td>
+                        <td class="actions">
+                            <a href="{{ route('admin.feedback.show', $feedback->id) }}" class="btn-edit">View Details</a>
                         </td>
-                        <!-- email linking to user profile trial -->
-                        <!-- <td>  @if ($feedback->user)
-                        <a href="{{ route('admin.users.show', $feedback->user->id) }}">{{ $feedback->email }}</a>@else
-                           {{ $feedback->email }}   @endif</td> -->
-                           
- 
                     </tr>
-                @endforeach
+                @empty
+                    <tr>
+                        <td colspan="5">No feedback found.</td>
+                    </tr>
+                @endforelse
             </tbody>
         </table>
     </div>
-    </div>
+</div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 @endsection
 
