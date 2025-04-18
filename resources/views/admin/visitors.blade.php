@@ -13,7 +13,7 @@
     @endif
     
     <div class="table-wrapper">
-        <table class="employee-table">
+        <table class="employee-table" id="dataTable">
             <thead>
                 <tr>
                     <th>ID</th>

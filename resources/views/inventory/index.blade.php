@@ -10,11 +10,11 @@
     </div>
 
     @if(session('success'))
-        <div class="alert alert-success">{{ session('success') }}</div>
+    <div style="padding: 12px 20px; margin-bottom: 15px; border: 1px solid #c3e6cb; border-radius: 4px; color: #155724; background-color: #d4edda; font-family: system-ui, -apple-system, sans-serif;">{{ session('success') }}</div>
     @endif
 
     <div class="table-wrapper">
-        <table class="employee-table">
+        <table class="employee-table" id="dataTable">
             <thead>
                 <tr>
                     <th>Name</th>
@@ -36,19 +36,21 @@
                         <td>{{ $inventory->manager->name ?? 'N/A' }}</td>
                         <td>
                             @if($inventory->image)
-                                <img src="{{ asset('storage/inventories/' . $inventory->image) }}"   alt="{{ $inventory->name }}"/>
+                                <img style="height: 120px;" src="{{ asset('storage/' . $inventory->image) }}"   alt="{{ $inventory->name }}"/>
 
                             @else
                                 No Image
                             @endif
                         </td>
-                        <td class="actions">
+                        <td >
+                            <div  class="actions">
                             <a href="{{ route('inventories.edit', $inventory) }}" class="btn-edit">Edit</a>
                             <form action="{{ route('inventories.destroy', $inventory) }}" method="POST" class="delete-form">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn-delete" onclick="return confirm('Are you sure?')">Delete</button>
                             </form>
+                            </div>
                         </td>
                     </tr>
                 @empty

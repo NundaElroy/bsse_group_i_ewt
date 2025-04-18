@@ -10,11 +10,13 @@
     </div>
 
     @if(session('success'))
-        <div class="alert alert-success">{{ session('success') }}</div>
+    <div style="padding: 12px 20px; margin-bottom: 15px; border: 1px solid #c3e6cb; border-radius: 4px; color: #155724; background-color: #d4edda; font-family: system-ui, -apple-system, sans-serif;">
+    Your message here
+</div>{{ session('success') }}</div>
     @endif
 
     <div class="table-wrapper">
-        <table class="employee-table">
+        <table class="employee-table" id="dataTable">
             <thead>
                 <tr>
                      <th>Image</th>
@@ -28,7 +30,7 @@
                     <tr>
                         <td>
                             @if($gallery->image)
-                                <img src="{{ asset('storage/' . $gallery->image) }}" alt="{{ $gallery->title }}" style="height: 120px;">
+                                <img style="height: 80px;" src="{{ asset('storage/' . $gallery->image) }}" alt="{{ $gallery->title }}" >
                             @else
                                 No Image
                             @endif

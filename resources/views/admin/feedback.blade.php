@@ -12,7 +12,7 @@
     @endif
     
     <div class="table-wrapper">
-        <table class="employee-table">
+        <table class="employee-table" id="dataTable">
             <thead>
                 <tr>
                     <th>Email</th>
@@ -29,8 +29,11 @@
                         <td>{{ Str::limit($feedback->comment, 50) }}</td>
                         <td>{{ $feedback->rating ?? 'N/A' }}</td>
                         <td>{{ $feedback->date->format('M d, Y') }}</td>
-                        <td class="actions">
+                        <td >
+                            <div class="actions">
                             <a href="{{ route('admin.feedback.show', $feedback->id) }}" class="btn-edit">View Details</a>
+                            </div>
+                           
                         </td>
                     </tr>
                 @empty
