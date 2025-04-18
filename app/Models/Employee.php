@@ -10,7 +10,6 @@ class Employee extends Model
     use HasFactory;
 
     protected $fillable = [
-        'user_id',
         'name',
         'role',
         'phone_number',
@@ -38,6 +37,12 @@ class Employee extends Model
     {
         return $this->hasMany(Event::class);
     }
+
+    public function inventories()
+    {
+        return $this->hasMany(Inventory::class);
+    }
+
 
     
     

@@ -16,6 +16,7 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" type="text/css">
     @stack('styles')
 </head>
 <body>
@@ -26,6 +27,7 @@
     <aside class="sidebar" id="sidebar">
         <div class="logo-area">
             <img src="{{ asset('images/zoolg.png') }}" alt="" style="width: 95px; border-radius: 20%">
+            <span class="admin-text">ADMIN</span>
         </div>
         
         <a href="{{ route('dashboard') }}" class="menu-item {{ request()->routeIs('dashboard') ? 'active' : '' }}">
@@ -52,7 +54,12 @@
              Habitats
         </a>
 
+        <a href="{{ route('inventories.index') }}" class="menu-item {{ request()->routeIs('inventories*') ? 'active' : '' }}">
+           <i class="fa-solid fa-warehouse menu-icon"></i> 
+             Inventory
+        </a>
         
+                
         <div class="section-title">EMPLOYEES</div>
         <a href="{{ route('employees.index') }}" class="menu-item {{ request()->routeIs('employees*') ? 'active' : '' }}"
         >
@@ -91,7 +98,7 @@
             Events
         </a>
         
-        <a href="#" class="menu-item">
+        <a href="{{ route('galleries.index') }}" class="menu-item {{ request()->routeIs('galleries*') ? 'active' : '' }}">
             <i class="fa-solid fa-file-export menu-icon"></i>
             Gallery
         </a>
@@ -141,7 +148,15 @@
         </div>
     </main>
     @stack('scripts')
+
+    
+     <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+
+    <!-- DataTables JS -->
+    
+    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest"></script>
     <script>
+
         // Toggle sidebar on mobile
         document.getElementById('menuToggle').addEventListener('click', function() {
             document.getElementById('sidebar').classList.toggle('active');
@@ -161,6 +176,28 @@
                 document.getElementById('backdrop').classList.remove('active');
             }
         });
+
+
+        
+
+    document.addEventListener("DOMContentLoaded", function() {
+       
+        const dataTable = new simpleDatatables.DataTable("#dataTable", {
+            searchable: true,
+            perPage: 10,
+            labels: {
+                placeholder: "Search...",
+                perPage: "",
+            }
+        });
+        
+      
+    });
+
+
+
+
     </script>
+
 </body>
 </html>

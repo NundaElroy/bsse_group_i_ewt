@@ -69,12 +69,15 @@
             <div class="charts__left">
               <div class="charts__left__title">
                 <div>
-                  <h1>Daily Reports</h1>
+                  <h1>Visitor Report</h1>
                   <p>Entebbe,Uganda</p>
                 </div>
                 <i class="fa fa-ugx" aria-hidden="true"></i>
               </div>
-              <div id="apex1"></div>
+              <div style="width: 320px; height: 320px;">
+                  <canvas id="visitorPieChart"></canvas>
+              </div>
+              <!-- <div id="apex1"></div> -->
             </div>
 
             <div class="charts__right">
@@ -115,6 +118,48 @@
 
 @endsection
 
+
+@push('scripts')
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  
+     const pieCtx = document.getElementById('visitorPieChart').getContext('2d');
+    new Chart(pieCtx, {
+        type: 'pie',
+        data: {
+            labels: @json($labels), // ['Ugandan Citizen', 'Foreign Visitor']
+            datasets: [{
+                data: @json($values),
+                backgroundColor: [
+                    '#4CAF50', // green for local
+                    '#FF5722'  // orange for foreign
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'bottom'
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            let label = context.label || '';
+                            let value = context.raw || 0;
+                            return `${label}: ${value} visitors`;
+                        }
+                    }
+                }
+            }
+        }
+    });
+
+    
+</script>
+
+@endpush
 
 
 <!-- @push('scripts')

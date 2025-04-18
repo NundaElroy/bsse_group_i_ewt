@@ -12,7 +12,7 @@
     @endif
     
     <div class="table-wrapper">
-        <table class="employee-table">
+        <table class="employee-table" id="dataTable">
             <thead>
                 <tr>
                     <th>Email</th>
@@ -33,7 +33,12 @@
                         <!-- change on date handling -->
                         <td>{{ $feedback->date ? $feedback->date->format('M d, Y') :'N/A' }}</td>
                         <td class="actions">
+                        <td>{{ $feedback->date->format('M d, Y') }}</td>
+                        <td >
+                            <div class="actions">
                             <a href="{{ route('admin.feedback.show', $feedback->id) }}" class="btn-edit">View Details</a>
+                            </div>
+                           
                         </td>
                     </tr>
                 @empty

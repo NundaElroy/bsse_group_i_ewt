@@ -13,7 +13,7 @@
     @endif
     
     <div class="table-wrapper">
-        <table class="employee-table">
+        <table class="employee-table" id="dataTable">
             <thead>
                 <tr>
                     <th>Name</th>
@@ -42,13 +42,16 @@
                                 No Image
                             @endif
                         </td>
-                        <td class="actions">
-                            <a href="{{ route('events.edit', $event) }}" class="btn-edit">Edit</a>
+                        <td >
+                           <div class="actions">
+                           <a href="{{ route('events.edit', $event) }}" class="btn-edit">Edit</a>
                             <form action="{{ route('events.destroy', $event) }}" method="POST" class="delete-form">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn-delete" onclick="return confirm('Are you sure?')">Delete</button>
                             </form>
+                           </div>
+                            
                         </td>
                     </tr>
                 @empty
