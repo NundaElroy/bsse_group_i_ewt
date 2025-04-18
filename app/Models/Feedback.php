@@ -10,7 +10,8 @@ class Feedback extends Model
     use HasFactory;
 
     // Specify the table name if it differs from the model name (optional here)
-    // protected $table = 'feedback';
+    //removed comments from protected $table
+    protected $table = 'feedback';
 
     // Define fillable fields for mass assignment
     protected $fillable = [
@@ -24,6 +25,8 @@ class Feedback extends Model
     // Cast the date field to a proper date format
     protected $casts = [
         'date' => 'date',
+        //added rating to make sure it is treated as an integer value
+        'rating'=> 'integer',
         'created_at' => 'datetime',
         'updated_at' => 'datetime',
     ];

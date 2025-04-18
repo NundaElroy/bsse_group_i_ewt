@@ -16,6 +16,7 @@
             <thead>
                 <tr>
                     <th>Email</th>
+                    <th>Subject</th>
                     <th>Comment</th>
                     <th>Rating</th>
                     <th>Date</th>
@@ -26,16 +27,18 @@
                 @forelse ($feedbacks as $feedback)
                     <tr>
                         <td>{{ $feedback->email }}</td>
+                        <td>{{ $feedback->subject }}</td>
                         <td>{{ Str::limit($feedback->comment, 50) }}</td>
                         <td>{{ $feedback->rating ?? 'N/A' }}</td>
-                        <td>{{ $feedback->date->format('M d, Y') }}</td>
+                        <!-- change on date handling -->
+                        <td>{{ $feedback->date ? $feedback->date->format('M d, Y') :'N/A' }}</td>
                         <td class="actions">
                             <a href="{{ route('admin.feedback.show', $feedback->id) }}" class="btn-edit">View Details</a>
                         </td>
                     </tr>
                 @empty
                     <tr>
-                        <td colspan="5">No feedback found.</td>
+                        <td colspan="6">No feedback found.</td>
                     </tr>
                 @endforelse
             </tbody>

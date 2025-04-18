@@ -26,9 +26,9 @@
           <li class="nav-item"><a href="#" class="nav-link">Animals <span class="dropdown-icon"></span></a></li>
           <li class="nav-item"><a href="{{ url('book_ticket') }}" class="nav-link">Book Tickets</a></li>
           <li class="nav-item"><a href="{{ url('careers') }}" class="nav-link">Careers</a></li>
-          <li class="nav-item"><a href="{{ url('evens') }}" class="nav-link">Events</a></li>
+          <li class="nav-item"><a href="{{ url('events') }}" class="nav-link">Events</a></li>
           <!-- <li class="nav-item"><a href="{{ url('contact') }}" class="nav-link">Contact Us</a></li> -->
-          <li class="nav-item"><a href="{{ route('contact') }}" class="nav-link">Contact Us</a></li>
+          <li class="nav-item"><a href="{{ url('contact') }}" class="nav-link">Contact Us</a></li>
 
         </ul>
       </nav>
