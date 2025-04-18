@@ -113,6 +113,37 @@
             </div>
           </div>
           <!-- CHARTS ENDS HERE -->
+           <!-- CHARTS STARTS HERE -->
+          <div class="charts">
+            <div class="charts__left">
+              <div class="charts__left__title">
+                <div>
+                  <h1>Visitors per Month </h1>
+                  <p>Entebbe,Uganda</p>
+                </div>
+                <i class="fa fa-ugx" aria-hidden="true"></i>
+              </div>
+              <div style="width: 100%; height: 400px;">
+              <canvas id="monthlyVisitorsChart"></canvas>
+              </div>
+
+              
+              <!-- <div id="apex1"></div> -->
+            </div>
+
+            <div class="charts__right">
+              <div class="charts__right__title">
+                <div>
+                  <h1>Tickets sold Per Month</h1>
+                  <p>Entebbe,Uganda</p>
+                </div>
+                <i class="fa fa-ugx" aria-hidden="true"></i>
+              </div>
+
+            
+            </div>
+          </div>
+          <!-- CHARTS ENDS HERE -->
         </div>
       </main>
 
@@ -155,6 +186,59 @@
             }
         }
     });
+
+    //bar chart for montly visitors 
+
+    const barCtx = document.getElementById('monthlyVisitorsChart').getContext('2d');
+    new Chart(barCtx, {
+      type: 'bar',
+      data: {
+          labels: @json($months), // ['January', 'February', 'March', ...]
+          datasets: [{
+              label: 'Number of Visitors',
+              data: @json($monthlyCounts),
+              backgroundColor: '#3f51b5',
+              borderRadius: 4,
+              barThickness: 30
+          }]
+      },
+      options: {
+          responsive: true,
+          plugins: {
+              legend: {
+                  display: false // We don't need a legend for one dataset
+              },
+              tooltip: {
+                  callbacks: {
+                      label: function(context) {
+                          return `${context.raw} visitors`;
+                      }
+                  }
+              }
+          },
+          scales: {
+              y: {
+                  beginAtZero: true,
+                  ticks: {
+                      stepSize: 1,
+                      precision: 0
+                  },
+                  title: {
+                      display: true,
+                      text: 'Number of Visitors'
+                  }
+              },
+              x: {
+                  title: {
+                      display: true,
+                      text: 'Month'
+                  }
+              }
+          }
+      }
+    });
+
+    
 
     
 </script>

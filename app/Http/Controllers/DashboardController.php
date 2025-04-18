@@ -7,6 +7,7 @@ use App\Models\Employee;
 use App\Models\Visitor;
 use App\Models\Bookings;
 use App\Models\Event;
+use Illuminate\Support\Facades\DB; 
 
 use Illuminate\Http\Request;
 
@@ -43,6 +44,19 @@ class DashboardController extends Controller
         $values = $visitorTypes->pluck('total');
 
         
+        
+        // Get visitors grouped by month
+        $monthlyVisitors = Visitor::selectRaw('MONTH(created_at) as month, COUNT(*) as total')
+        ->groupBy(DB::raw('MONTH(created_at)'))
+        ->orderBy(DB::raw('MONTH(created_at)'))
+        ->get();
+
+        $months = $monthlyVisitors->pluck('month')->map(function ($month) {
+            return \Carbon\Carbon::create()->month($month)->format('F');
+        });
+
+        $monthlyCounts = $monthlyVisitors->pluck('total');
+
         return view('admin.dashboard', compact(
             'animalCount',
             'employeeCount',
@@ -52,7 +66,9 @@ class DashboardController extends Controller
             'income',
             'eventCount',
             'labels',
-            'values'
+            'values',
+            'months',
+            'monthlyCounts'
         ));
     }
 }
