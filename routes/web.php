@@ -15,6 +15,7 @@ use App\Http\Controllers\UserEventController;
 use App\Http\Controllers\InventoryController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\MedicalRecordController;
 
 //use view routes
 Route::get('/', function () {
@@ -85,4 +86,12 @@ Route::get('/admin/feedback/{id}', [FeedbackController::class, 'show'])->name('a
 //gallery
 Route::resource('galleries', GalleryController::class);
 
+//animal
+Route::resource('animals', \App\Http\Controllers\AnimalController::class);
+//habitats
+Route::resource('habitats', \App\Http\Controllers\HabitatController::class);
+//medical records 
+
+
+Route::resource('medical-records', MedicalRecordController::class);
 
