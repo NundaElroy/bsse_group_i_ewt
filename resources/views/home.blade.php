@@ -4,7 +4,8 @@
 @section('title', 'Home - Zoo Management System')
 
 @section('content')
-<!-- Hero Section -->
+<div id="bg-section" style="margin-top: 10px; min-height: 100vh;">
+    <!-- Hero Section -->
 <div class="hero">
     <div class="hero-content">
         <h2>Welcome to the Wild Side of Life 🐅</h2>
@@ -70,23 +71,27 @@
 
 
 
+</div>
 <!-- JavaScript for Changing Background Image -->
 <script>
     const animalImages = [
-        "{{ asset('images/lion.jpg') }}",
-        "{{ asset('images/elephant.jpg') }}",
-        "{{ asset('images/zebra.jpg') }}",
-        "{{ asset('images/giraffe.jpg') }}",
-        "{{ asset('images/tiger.jpg') }}"
+        //"{{ asset('images/cub.jpg') }}",
+        //"{{ asset('images/elephant.jpg') }}",
+        //"{{ asset('images/crestedcrane.jpg') }}",
+        "{{ asset('images/giraffer.jpg') }}",
+        //"{{ asset('images/antelope.jpg') }}"
     ];
 
     function changeBackgroundImage() {
-        const randomImage = animalImages[Math.floor(Math.random() * animalImages.length)];
-        document.body.style.backgroundImage = `url(${randomImage})`;
-        document.body.style.backgroundSize = "cover";
-        document.body.style.backgroundPosition = "center center";
-        document.body.style.backgroundAttachment = "fixed";
-    }
+    const randomImage = animalImages[Math.floor(Math.random() * animalImages.length)];
+    const bgSection = document.getElementById("bg-section");
+
+    bgSection.style.backgroundImage = `url(${randomImage})`;
+    bgSection.style.backgroundSize = "cover";
+    bgSection.style.backgroundPosition = "center  center";
+    bgSection.style.backgroundAttachment = "fixed";
+}
+
 
     setInterval(changeBackgroundImage, 5000); // Change image every 5 seconds
 
