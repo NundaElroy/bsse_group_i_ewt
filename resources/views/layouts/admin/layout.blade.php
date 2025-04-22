@@ -37,16 +37,17 @@
         
         <div class="section-title">ANIMALS</div>
         
-        <a href="#" class="menu-item">
+       <a href="{{ route('animals.index') }}" class="menu-item {{ request()->routeIs('animals*') ? 'active' : '' }}">
+    <i class="fa-solid fa-hippo menu-icon"></i>
+    Animals Management
+    </a>
+
         
-            <i class="fa-solid fa-hippo menu-icon"></i>
-            Animals Management
-        </a>
-        
-        <a href="#" class="menu-item">
-            <i class="fa-solid fa-file-lines menu-icon"></i>
-            Medical Records 
-        </a>
+      <a href="{{ route('medical-records.index') }}" class="menu-item {{ request()->routeIs('medical-records*') ? 'active' : '' }}">
+    <i class="fa-solid fa-notes-medical menu-icon"></i>
+    Medical Records
+</a>
+
 
         <!-- <div class="section-title">LOCATIONS</div> -->
         <a href="{{ route('locations.index') }}" class="menu-item {{ request()->routeIs('locations*') ? 'active' : '' }}">

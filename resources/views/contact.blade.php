@@ -1,3 +1,6 @@
+<!-- init_set('display_errors', 1);
+init_set('display_startup_errors');
+error_reporting(E_ALL); -->
 @extends('layouts.user.layout')
 
 @section('title', 'Contact Us - Zoo Management System')
@@ -57,25 +60,37 @@
                     </div>
                     <h5 class="title">Contact Us</h5>
                     <p>If you have any inquiries and would like to hear from us, feel free to reach out using the form below.</p>
+       
                     <form id="contact-form" method="POST" action="{{route('contact.submit')}}">
                         @csrf
                        
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <input id="email" type="email" name="email" required="">
+                            <input id="email" type="email" name="email" value="{{ old('email') }}" required="">
                         </div>
                         <div class="form-group">
                             <label for="subject">Subject</label>
-                            <input id="subject" type="text" name="subject" required="">
+                            <input id="subject" type="text" name="subject" value="{{ old('subject') }}"required="">
                         </div>
                         <div class="form-group">
                             <label for="message">Message</label>
-                            <textarea id="message" rows="5" name="comment" required=""></textarea>
+                            <textarea id="message" rows="5" name="comment" value= "{{ old('comment') }}" required></textarea>
                         </div>
 
                         <div class="form-group">
-                            <label for="rating">rating</label>
-                            <textarea id="rating" rows="5" name="rating" required=""></textarea>
+                            <label for="rating">Rating (1-5)</label>
+                            <!-- <textarea id="rating" rows="5" name="rating" required=""></textarea> -->
+                            <select id="rating" name="rating" required>
+                                <option value="" {{ old('rating') ? '' : 'selected' }}>Select Rating</option>
+                                <option value="1" {{ old('rating') == '1' ? 'selected' : '' }}>1</option>
+                                <option value="2" {{ old('rating') == '2' ? 'selected' : '' }}>2</option>
+                                <option value="3" {{ old('rating') == '3' ? 'selected' : '' }}>3</option>
+                                <option value="4" {{ old('rating') == '4' ? 'selected' : '' }}>4</option>
+                                <option value="5" {{ old('rating') == '5' ? 'selected' : '' }}>5</option>
+                            </select>
+                            @error('rating')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
                         </div>
                         <div class="form-group">
                             <button type="submit" class="send-btn" name="submit">
