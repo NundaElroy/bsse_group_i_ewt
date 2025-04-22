@@ -41,6 +41,8 @@ class Animal extends Model
     {
         return $this->hasMany(MedicalRecord::class);
     }
+	
+
     
     // // If you want to track which employees care for this animal
     // public function caretakers()
