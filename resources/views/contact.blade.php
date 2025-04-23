@@ -107,7 +107,7 @@ error_reporting(E_ALL); -->
 
 <div class="map-container">
     <iframe 
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.7438101579443!2d32.5386032!3d0.0588342!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x177d987a0d6b68ad%3A0xd5f0aec1ccac03df!2sUganda%20Wildlife%20Education%20Centre!5e0!3m2!1sen!2sus!4v1713472552987!5m2!1sen!2sus" 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.7438101579443!2d32.47638!3d0.05325!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x177d987a0d6b68ad%3A0xd5f0aec1ccac03df!2sUganda%20Wildlife%20Education%20Centre!5e0!3m2!1sen!2sus!4v1713472552987!5m2!1sen!2sus"
         width="100%" 
         height="450" 
         allowfullscreen="" 

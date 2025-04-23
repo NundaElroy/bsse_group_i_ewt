@@ -1,24 +1,57 @@
 // JavaScript function to calculate the total amount based on ticket selection
 function calculateTotal() {
-    const adultPriceCitizen = 5000;
-    const childPriceCitizen = 3000;
-    const adultPriceForeign = 15000;
-    const childPriceForeign = 10000;
-
+    // Extract prices from the DOM
+    let adultPriceCitizen = 5000; // Default fallback value
+    let childPriceCitizen = 3000; // Default fallback value
+    let adultPriceForeign = 15000; // Default fallback value
+    let childPriceForeign = 10000; // Default fallback value
+    
+    // Get all ticket price items
+    const ticketItems = document.querySelectorAll('.ticket-price-item');
+    
+    // Extract prices from data attributes
+    ticketItems.forEach(item => {
+        const category = item.getAttribute('data-category');
+        const ageType = item.getAttribute('data-age');
+        const price = parseInt(item.getAttribute('data-price'));
+        
+        if (category === 'ugandan_citizen') {
+            if (ageType === 'adult') adultPriceCitizen = price;
+            if (ageType === 'child') childPriceCitizen = price;
+        } else if (category === 'foreign_visitor') {
+            if (ageType === 'adult') adultPriceForeign = price;
+            if (ageType === 'child') childPriceForeign = price;
+        }
+    });
+    
+    // Rest of your calculation function continues here...
     const visitorType = document.getElementById('visitor_type').value;
-    const adultTickets = document.getElementById('adult').value;
-    const childTickets = document.getElementById('child').value;
-
-    let totalAmount = 0;
-
-    if (visitorType === 'citizen') {
-        totalAmount = (adultTickets * adultPriceCitizen) + (childTickets * childPriceCitizen);
-    } else if (visitorType === 'foreign') {
-        totalAmount = (adultTickets * adultPriceForeign) + (childTickets * childPriceForeign);
+    const adultTickets = parseInt(document.getElementById('adult').value) || 0;
+    const childTickets = parseInt(document.getElementById('child').value) || 0;
+    
+    let adultPrice, childPrice, totalAmount;
+    
+    if (visitorType === 'Ugandan Citizen') {
+        adultPrice = adultPriceCitizen;
+        childPrice = childPriceCitizen;
+    } else { // Foreign Visitor
+        adultPrice = adultPriceForeign;
+        childPrice = childPriceForeign;
     }
-
-    // Update the total amount field
-    document.getElementById('total_amount').value = 'UGX ' + totalAmount.toLocaleString();
+    
+    // Calculate totals
+    const adultTotal = adultTickets * adultPrice;
+    const childTotal = childTickets * childPrice;
+    totalAmount = adultTotal + childTotal;
+    
+    // Update displays
+    document.getElementById('adult-count').textContent = adultTickets;
+    document.getElementById('child-count').textContent = childTickets;
+    document.getElementById('adult-total').textContent = `UGX ${adultTotal.toLocaleString()}`;
+    document.getElementById('child-summary').textContent = `UGX ${childTotal.toLocaleString()}`;
+    document.getElementById('summary-total').textContent = `UGX ${totalAmount.toLocaleString()}`;
+    
+    document.getElementById('total_amount').value = totalAmount;
 }
 
 // JavaScript function to validate National ID and Passport format
@@ -78,5 +111,54 @@ document.getElementById('visitor_type').addEventListener('change', calculateTota
 document.getElementById('ticketForm').addEventListener('submit', function (event) {
     if (!validateDocumentFormat()) {
         event.preventDefault();  // Prevent form submission if the document is invalid
+    }
+});
+
+
+
+
+ // Add this JavaScript to enhance the form functionality
+ document.addEventListener('DOMContentLoaded', function() {
+    // Quantity buttons functionality
+    const quantityBtns = document.querySelectorAll('.quantity-btn');
+    quantityBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const input = this.parentNode.querySelector('input');
+            const currentValue = parseInt(input.value);
+            
+            if (this.classList.contains('plus')) {
+                input.value = currentValue + 1;
+            } else if (this.classList.contains('minus') && currentValue > 0) {
+                input.value = currentValue - 1;
+            }
+            
+            // Trigger change event for recalculation
+            const event = new Event('change');
+            input.dispatchEvent(event);
+            calculateTotal();
+            updateSummary();
+        });
+    });
+    
+    // Initialize summary on page load
+    updateSummary();
+    
+    // Update summary when inputs change
+    document.getElementById('adult').addEventListener('change', updateSummary);
+    document.getElementById('child').addEventListener('change', updateSummary);
+    document.getElementById('visitor_type').addEventListener('change', updateSummary);
+    
+    function updateSummary() {
+        // This is a placeholder - the actual calculation would be done by your JS file
+        // You would need to adjust your tickets.js file to work with this new markup
+        const adultCount = parseInt(document.getElementById('adult').value) || 0;
+        const childCount = parseInt(document.getElementById('child').value) || 0;
+        
+        document.getElementById('adult-count').textContent = adultCount;
+        document.getElementById('child-count').textContent = childCount;
+        
+        // If no tickets are selected, hide the summary items
+        document.getElementById('adult-summary').style.display = adultCount > 0 ? 'flex' : 'none';
+        document.getElementById('child-sum').style.display = childCount > 0 ? 'flex' : 'none';
     }
 });

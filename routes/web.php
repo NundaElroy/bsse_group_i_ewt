@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AnimalVisitorController;
 use App\Http\Controllers\BookTicketController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TicketTypeController; // Ensure this class exists in the specified namespace
@@ -35,7 +36,7 @@ Route::get('/book_ticket', [BookTicketController::class, 'index'])->name('book_t
 Route::post('/book_ticket', [BookTicketController::class, 'store'])->name('book_ticket.store');
 
 //Events on the web or user view
-Route::get('/events', [UserEventController::class, 'index'])->name('evens');
+Route::get('/evens', [UserEventController::class, 'index'])->name('evens');
 
 //gallery
 Route::get('/gallery', [UserEventController::class, 'gallery'])->name('gallery');
@@ -43,9 +44,8 @@ Route::get('/gallery', [UserEventController::class, 'gallery'])->name('gallery')
 Route::get('/contact', [ContactController::class, 'show'])->name('contact.show');
 Route::post('/contact/submit', [ContactController::class, 'store'])->name('contact.submit');
 
-//added new trial route
-
-// Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
+//view animal routes 
+Route::get('/view-animals', [AnimalVisitorController::class, 'index'])->name('view-animals');
 
 
 

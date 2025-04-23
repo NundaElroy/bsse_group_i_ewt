@@ -23,10 +23,10 @@
         <ul class="nav-menu">
           <li class="nav-item"><a href="{{ url('home') }}" class="nav-link">Home</a></li>
           <li class="nav-item"><a href="{{ url('gallery') }}" class="nav-link">Gallery</a></li>
-          <li class="nav-item"><a href="#" class="nav-link">Animals <span class="dropdown-icon"></span></a></li>
+          <li class="nav-item"><a href="{{ url('view-animals') }}" class="nav-link">Animals </span></a></li>
           <li class="nav-item"><a href="{{ url('book_ticket') }}" class="nav-link">Book Tickets</a></li>
-          <li class="nav-item"><a href="{{ url('careers') }}" class="nav-link">Careers</a></li>
-          <li class="nav-item"><a href="{{ url('events') }}" class="nav-link">Events</a></li>
+          <!-- <li class="nav-item"><a href="{{ url('careers') }}" class="nav-link">Careers</a></li> -->
+          <li class="nav-item"><a href="{{ url('evens') }}" class="nav-link">Events</a></li>
           <!-- <li class="nav-item"><a href="{{ url('contact') }}" class="nav-link">Contact Us</a></li> -->
           <li class="nav-item"><a href="{{ url('contact') }}" class="nav-link">Contact Us</a></li>
 

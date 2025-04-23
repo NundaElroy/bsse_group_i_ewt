@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class LocationController extends Controller
 {
+    //  'auth' middleware to this controller
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      */

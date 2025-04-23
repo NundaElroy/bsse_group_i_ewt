@@ -8,6 +8,12 @@ use Illuminate\Http\Request;
 
 class MedicalRecordController extends Controller
 {
+
+    //  'auth' middleware to this controller
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
    // MedicalRecordController.php
 
 public function index()

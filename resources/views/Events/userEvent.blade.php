@@ -1,52 +1,73 @@
 @extends('layouts.user.layout')
 
-@section('title', 'About Us - Zoo Management System')
-
-
-
+@section('title', 'Events - Zoo Management System')
 
 @section('content')
 <div class="events-container">
-    <h2 class="events-heading">Events</h2>
+    <div class="events-header">
+        <h2 class="events-heading">Upcoming Events</h2>
+        <p class="events-subheading">Join us for these exciting activities at the zoo</p>
+    </div>
 
     @if($events->isEmpty())
-    <div class="events-row">
-            <div class="events-column">
-                <div class="event-card">
-                <p>No events available at the moment.</p>
-                </div>
-            </div>
+    <div class="no-events">
+        <div class="no-events-icon">
+            <i class="fas fa-calendar-times"></i>
         </div>
-        
+        <p>No events scheduled at the moment.</p>
+        <p class="check-back">Please check back later for upcoming activities!</p>
+    </div>
     @else
-        <div class="events-row">
+        <div class="events-grid">
             @foreach($events as $event)
-                <div class="events-column">
-                    <div class="event-card">
+                <div class="event-card">
+                    <div class="event-image">
+                        @if($event->image_path)
+                            <img src="{{ asset('storage/' . $event->image_path) }}" alt="{{ $event->name }}">
+                        @else
+                            <img src="{{ asset('images/default-event.jpg') }}" alt="Default Event Image">
+                        @endif
+                        <div class="event-status {{ $event->status }}">{{ ucfirst($event->status) }}</div>
+                    </div>
+                    <div class="event-content">
                         <h3 class="event-title">{{ $event->name }}</h3>
-                        <div class="event-image">
-                            <img src="{{ asset('storage/' . $event->image_path) }}" alt="{{ $event->name }}" width="250">
+                        
+                        <div class="event-meta">
+                            <div class="event-meta-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>{{ $event->location }}</span>
+                            </div>
+                            <div class="event-meta-item">
+                                <i class="fas fa-calendar"></i>
+                                <span>{{ \Carbon\Carbon::parse($event->start_time)->format('F d, Y') }}</span>
+                            </div>
+                            <div class="event-meta-item">
+                                <i class="fas fa-clock"></i>
+                                <span>{{ \Carbon\Carbon::parse($event->start_time)->format('h:i A') }} - {{ \Carbon\Carbon::parse($event->end_time)->format('h:i A') }}</span>
+                            </div>
                         </div>
-                        <p class="event-detail">
-                            <span class="label">Description:</span> 
-                            <span class="detail-text">{{ $event->description }}</span>
-                        </p>
-                        <p class="event-detail">
-                            <span class="label">Personnel</span> 
-                            <span class="detail-text">{{$event->employee->name}}</span>
-                        </p>
-                        <p class="event-detail">
-                            <span class="label">Event Duration:</span> 
-                            <span class="detail-text">{{ \Carbon\Carbon::parse($event->start_time)->format('F d, Y @ h:i A') }} - {{ \Carbon\Carbon::parse($event->end_time)->format('F d, Y @ h:i A') }}</span>
-                        </p>
-                        <p class="event-detail">
-                            <span class="label">Event Start Date:</span> 
-                            <span class="detail-text">{{ \Carbon\Carbon::parse($event->start_time)->toDateString() }}</span>
-                        </p>
+                        
+                        <div class="event-description">
+                            <p>{{ Str::limit($event->description, 120) }}</p>
+                        </div>
+                        
+                        <div class="event-footer">
+                            <div class="event-host">
+                                <i class="fas fa-user"></i>
+                                <span>Hosted by: {{ $event->employee->name }}</span>
+                            </div>
+                            <a href="#" class="event-details-btn">Learn More</a>
+                        </div>
                     </div>
                 </div>
             @endforeach
         </div>
+        
+        @if(count($events) > 6)
+        <div class="load-more">
+            <button class="load-more-btn">Load More Events</button>
+        </div>
+        @endif
     @endif
 </div>
 @endsection
@@ -55,77 +76,234 @@
 @push('styles')
 <style>
     .events-container {
-        padding: 40px 0;
-        max-width: 1140px;
+        padding: 60px 0;
+        max-width: 1200px;
         margin: 0 auto;
     }
 
+    .events-header {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
     .events-heading {
-        margin-bottom: 20px;
+        font-size: 36px;
+        color: #2c3e50;
+        margin-bottom: 10px;
         position: relative;
-        font-size: 24px;
+        display: inline-block;
     }
 
     .events-heading::after {
         content: "";
         position: absolute;
-        left: 0;
+        left: 50%;
+        transform: translateX(-50%);
         bottom: -10px;
-        width: 100%;
-        height: 1px;
-        background-color: #e0e0e0;
+        width: 80px;
+        height: 3px;
+        background-color: #27ae60;
     }
 
-    .events-row {
-        display: flex;
-        flex-wrap: wrap;
+    .events-subheading {
+        color: #7f8c8d;
+        font-size: 18px;
+        margin-top: 20px;
     }
 
-    .events-column {
-        flex: 1;
-        margin-top: 15px;
-        min-width: 300px;
+    .events-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        gap: 30px;
     }
 
     .event-card {
-        border: 1px solid #dee2e6;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
         background-color: white;
-        padding: 20px;
-        margin-top: 15px;
-        height: 400px;
+        height: 100%;
     }
 
-    .event-title {
-        font-weight: normal;
-        margin-bottom: 15px;
-        font-size: 20px;
+    .event-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
     }
 
     .event-image {
+        height: 200px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .event-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+    }
+
+    .event-card:hover .event-image img {
+        transform: scale(1.1);
+    }
+
+    .event-status {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        padding: 5px 10px;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: white;
+    }
+
+    .event-status.upcoming {
+        background-color: #2ecc71;
+    }
+
+    .event-status.past {
+        background-color: #e74c3c;
+    }
+
+    .event-content {
+        padding: 20px;
+    }
+
+    .event-title {
+        font-size: 22px;
+        font-weight: 600;
+        margin-bottom: 15px;
+        color: #34495e;
+    }
+
+    .event-meta {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        margin-bottom: 15px;
+    }
+
+    .event-meta-item {
+        display: flex;
+        align-items: center;
+        color: #7f8c8d;
+        font-size: 14px;
+    }
+
+    .event-meta-item i {
+        margin-right: 8px;
+        color: #3498db;
+        width: 16px;
+    }
+
+    .event-description {
+        margin-bottom: 20px;
+        color: #576574;
+        font-size: 15px;
+        line-height: 1.5;
+    }
+
+    .event-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 15px;
+        border-top: 1px solid #ecf0f1;
+    }
+
+    .event-host {
+        display: flex;
+        align-items: center;
+        font-size: 14px;
+        color: #7f8c8d;
+    }
+
+    .event-host i {
+        margin-right: 5px;
+        color: #9b59b6;
+    }
+
+    .event-details-btn {
+        display: inline-block;
+        padding: 8px 15px;
+        background-color: #27ae60;
+        color: white;
+        border-radius: 4px;
+        font-size: 14px;
+        font-weight: 500;
+        text-decoration: none;
+        transition: background-color 0.3s;
+    }
+
+    .event-details-btn:hover {
+        background-color: #219652;
+    }
+
+    .no-events {
+        text-align: center;
+        padding: 60px 20px;
+        background-color: #f8f9fa;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .no-events-icon {
+        font-size: 50px;
+        color: #bdc3c7;
+        margin-bottom: 20px;
+    }
+
+    .no-events p {
+        font-size: 18px;
+        color: #7f8c8d;
         margin-bottom: 10px;
     }
 
-    .event-detail {
-        margin: 0;
-        padding: 5px 0;
+    .check-back {
+        font-size: 16px;
+        color: #95a5a6;
     }
 
-    .label {
-        font-weight: bold;
-        font-style: italic;
+    .load-more {
+        text-align: center;
+        margin-top: 40px;
     }
 
-    .detail-text {
-        font-weight: normal;
+    .load-more-btn {
+        background-color: transparent;
+        border: 2px solid #3498db;
+        color: #3498db;
+        padding: 10px 25px;
+        border-radius: 25px;
+        font-size: 16px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s;
+    }
+
+    .load-more-btn:hover {
+        background-color: #3498db;
+        color: white;
     }
 
     @media (max-width: 768px) {
         .events-container {
-            padding: 20px 15px;
+            padding: 40px 15px;
         }
         
-        .events-column {
-            flex: 0 0 100%;
+        .events-grid {
+            grid-template-columns: 1fr;
+        }
+        
+        .events-heading {
+            font-size: 28px;
+        }
+        
+        .events-subheading {
+            font-size: 16px;
         }
     }
 </style>

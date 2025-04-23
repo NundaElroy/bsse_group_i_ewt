@@ -6,6 +6,13 @@ use Illuminate\Http\Request;
 
 class FeedbackController extends Controller
 {
+
+    //  'auth' middleware to this controller
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function index()
     {
         // Fetch all feedback, ordered by date descending

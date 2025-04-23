@@ -10,6 +10,13 @@ use Illuminate\Support\Facades\Storage;
 
 class EmployeeController extends Controller
 {
+
+    //  'auth' middleware to this controller
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function index()
     {
         Log::info('EmployeeController@index: Fetching employees with pagination');

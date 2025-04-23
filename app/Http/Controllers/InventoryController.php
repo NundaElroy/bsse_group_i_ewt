@@ -8,6 +8,12 @@ use Illuminate\Support\Facades\Storage;
 
 class InventoryController extends Controller
 {
+
+    //  'auth' middleware to this controller
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      */
