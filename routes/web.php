@@ -82,6 +82,8 @@ Route::resource('inventories', InventoryController::class);
 //feedback routes
 Route::get('/admin/feedback', [FeedbackController::class, 'index'])->name('admin.feedback.index');
 Route::get('/admin/feedback/{id}', [FeedbackController::class, 'show'])->name('admin.feedback.show');
+//new route for deleting a feedback detail
+Route::delete('/admin/feedback/{feedback}', [FeedbackController::class, 'destroy'])->name('admin.feedback.destroy');
 
 //gallery
 Route::resource('galleries', GalleryController::class);

@@ -26,5 +26,14 @@ class FeedbackController extends Controller
         $feedback = Feedback::findOrFail($id);
         return view('admin.feedback-show', compact('feedback'));
     }
+    public function destroy(Feedback $feedback)
+     {
+    $feedback->delete();
+    
+    return redirect()->route('admin.feedback.index')
+        ->with('success', 'Feedback deleted successfully');
+     }
+
+
 }
 // orderBy('date', 'desc')
