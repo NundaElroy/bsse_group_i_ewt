@@ -10,7 +10,12 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Log;
 
 class AnimalController extends Controller
-{
+{  
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function index()
     {
         $animals = Animal::with('location')->get();

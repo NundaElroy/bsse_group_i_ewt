@@ -6,6 +6,7 @@ use App\Models\Visitor;
 use App\Models\Bookings;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
+use App\Helpers\MailHelper;
 
 use Illuminate\Http\Request;
 
@@ -74,6 +75,7 @@ class BookTicketController extends Controller
 
                 Log::info('Booking created successfully for visitor.', ['visitor_id' => $visitor->id]);
             });
+
 
             return redirect()->route('book_ticket')->with('success', 'Ticket booked successfully!');
         } catch (\Exception $e) {
