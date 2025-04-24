@@ -48,7 +48,7 @@
                     <td>{{ $animal->species }}</td>
                     <td>{{ $animal->age }}</td>
                     <td>{{ ucfirst($animal->gender) }}</td>
-                    <td>{{ $animal->habitat ? $animal->habitat->name : 'No Location' }}</td>
+                    <td>{{ $animal->location ? $animal->location->name : 'No Location' }}</td>
                     <td>{{ $animal->acquisition_date }}</td>
                     <td>{{ $animal->date_of_birth ?? 'N/A' }}</td>
                     <td>{{ $animal->identification_number ?? 'N/A' }}</td>
